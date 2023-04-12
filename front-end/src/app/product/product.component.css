@@ -1,0 +1,13 @@
+h1{
+    text-align: center;
+}
+
+img{
+	height: 20em;
+	width: 20em;
+	border: 1px solid black;
+	padding: 40px;
+	background: #1A1C1D;
+    margin: 2em;
+    cursor: pointer;
+}

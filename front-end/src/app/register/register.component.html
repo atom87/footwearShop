@@ -1,0 +1,30 @@
+<form [formGroup]="registerForm" (submit)="registration()">
+	<div class="form-group row">
+		<label class="col-3" for="userName">Username: </label>
+		<div class="col-7">
+			<input type="text" name="userName" id="userName" class="form-control" formControlName="userName">
+			<small class="text-primary" *ngIf="registerForm.controls.userName.touched && 
+			registerForm.controls.userName.errors?.required">This field is required!</small>
+		</div>
+	</div>
+	<div class="form-group row">
+		<label class="col-3" for="password">Password:</label>
+		<div class="col-7">
+			<input type="text" name="password" id="password" class="form-control" formControlName="password">
+			<small class="text-primary" *ngIf="registerForm.controls.password.touched && 
+			registerForm.controls.password.errors?.required">This field is required!</small>
+		</div>
+	</div>
+	<div class="form-group row">
+		<label class="col-3" for="repeatPass">Repeat password:</label>
+		<div class="col-7">
+			<input type="text" name="repeatPass" id="repeatPass" class="form-control" formControlName="repeatPass">
+			<small class="text-primary" *ngIf="registerForm.controls.repeatPass.touched && 
+			registerForm.controls.repeatPass.errors?.required">This field is required!</small>
+			<small class="text-danger" *ngIf="registerForm.controls.repeatPass.value &&  registerForm.controls.repeatPass.touched && repeatPassword()">Wrong password!!!</small>
+			<small class="text-success" *ngIf="registerForm.controls.repeatPass.value && registerForm.controls.repeatPass.touched && !repeatPassword()">You did it! :)</small>
+		</div>
+	</div>
+
+	<button type="submit" class="btn btn-primary" [disabled]="registerForm.invalid">Confirm</button>
+</form>
